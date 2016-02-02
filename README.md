@@ -45,5 +45,10 @@ git clone https://github.com/nikhil-pandey/worldlink-ticket
 
 `Note: If you are on a volume based plan, running this might finish some of your data.`
 
+## Contributing
+Yes i know i write terrible code in Python because i am not a Python developer.
+
+If you think you can make the code better or contribute to the project, then feel free to fork the repository, make changes and submit a pull request.
+
 ## License
 This package is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
