@@ -52,8 +52,8 @@ def test():
         # Run the speedtest on provided servers
         for server in servers:
                 speed = speedtest(server)
-                downloadSpeeds.append(speed[1])
-                uploadSpeeds.append(speed[2])
+                downloadSpeeds.append(speed[2])
+                uploadSpeeds.append(speed[3])
         # Calculate the average download speed
         averageDownload = float(sum(downloadSpeeds) / len(downloadSpeeds))
         averageUpload = float(sum(uploadSpeeds) / len(uploadSpeeds))
