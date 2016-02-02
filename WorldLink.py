@@ -17,7 +17,7 @@ class WorldLink:
             self.loggedIn = False
 
     def reportTicket(self, message):
-        print(message)
+        print("Message: "+ message)
         if self.loggedIn:
             data = self.session.post(self.ticketUrl, data = {'problem_type_name': 11, 'problem_types': 256, 'additional_info': message })
             if "Ticket ID" in data.text:

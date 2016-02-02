@@ -25,7 +25,8 @@ ls /usr/bin | grep ^pip
 ```
 
 ### Usage
-1. Change the variables `username`, `password`, `logData`, `logFile`, `downloadThreshold` according to your needs.
+1. Change the variables `username`, `password`, `logData`, `logFile`, `downloadThreshold`, `message` according to your needs.
+2. Use `{download}` and `{upload}` in `message` to replace with actual speed.
 2. Set a cron job every hour(s)/day(s) according to your choice to run the program `/path/to/main.py`
 
 `Note: If you are on a volume based plan, running this might finish some of your data.`

@@ -16,6 +16,9 @@ logFile="/home/pi/worldlink-log.csv"
 # A ticket is issued with worldlink
 downloadTheshold = 18
 
+# Message for the trouble ticket
+message = "I am subscribed to 25Mbps plan but my current internet speed is {download}Mbps Download and {upload}Mbps Upload. Fix this ASAP."
+
 def speedtest(server):
         print('Running test at Server#' + str(server))
         speed = os.popen("speedtest-cli --simple --server " + str(server)).read()
@@ -45,13 +48,14 @@ def average(speed1, speed2, speed3):
 
 def test():
         # Run the speedtest on 3 different servers and calculate the average speed
-        averageDownload, averageUpload = average(speedtest(4098), speedtest(4153), speedtest(6405))
+        # averageDownload, averageUpload = average(speedtest(4098), speedtest(4153), speedtest(6405))
+        averageDownload, averageUpload = [ 10, 12 ]
         print("Average Download Speed:" + str(averageDownload))
         print("Average Upload Speed:" + str(averageUpload))
         if averageDownload < downloadTheshold:
                 print("Trying to Report Ticket")
                 worldlink = WorldLink(username, password)
-                worldlink.reportTicket("I am subscribed to 25Mbps plan but my current internet speed is "+ str(int(averageDownload)) +"Mbps Download and "+ str(int(averageUpload))+"Mbps Upload. Fix this ASAP.")
+                worldlink.reportTicket(message.format(download=averageDownload, upload=averageUpload))
         else:
                 print("Awesome!! Internet Speed is fine!! No need to report ticket!!")
 
