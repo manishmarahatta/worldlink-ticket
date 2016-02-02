@@ -16,6 +16,9 @@ logFile="/home/pi/worldlink-log.csv"
 # A ticket is issued with worldlink
 downloadTheshold = 18
 
+# Speedtest.net servers to test on
+servers = [ 4098, 4153, 6405 ]
+
 # Message for the trouble ticket
 message = "I am subscribed to 25Mbps plan but my current internet speed is {download}Mbps Download and {upload}Mbps Upload. Fix this ASAP."
 
@@ -43,12 +46,17 @@ def save(data):
         writer.writerow((data[0], data[4], data[1], data[2], data[3]))
         target.close()
 
-def average(speed1, speed2, speed3):
-        return [ ( (speed1[2] + speed2[2] + speed3[2]) / 3 ), ( (speed1[3] + speed2[3] + speed3[3]) / 3 )]
-
 def test():
-        # Run the speedtest on 3 different servers and calculate the average speed
-        averageDownload, averageUpload = average(speedtest(4098), speedtest(4153), speedtest(6405))
+        downloadSpeeds = []
+        uploadSpeeds = []
+        # Run the speedtest on provided servers
+        for server in servers:
+                speed = speedtest(server)
+                downloadSpeeds.append(speed[1])
+                uploadSpeeds.append(speed[2])
+        # Calculate the average download speed
+        averageDownload = float(sum(downloadSpeeds) / len(downloadSpeeds))
+        averageUpload = float(sum(uploadSpeeds) / len(uploadSpeeds))
         print("Average Download Speed:" + str(averageDownload))
         print("Average Upload Speed:" + str(averageUpload))
         if averageDownload < downloadTheshold:
