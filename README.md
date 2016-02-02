@@ -10,6 +10,13 @@ sudo apt-get install python3
 ```
 
 You will need to install `speedtest-cli`
+### Install through pip
+
+```python
+sudo pip install speedtest-cli
+```
+
+### Install through Ubuntu package manager
 ```
 sudo apt-get install speedtest-cli
 ```
