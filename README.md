@@ -23,7 +23,7 @@ sudo apt-get install speedtest-cli
 
 You will also need `requests` package for python3
 ```
-pip install requests
+sudo pip install requests
 ```
 
 Sometimes the pip executable is named differently. You can find the executable name using
