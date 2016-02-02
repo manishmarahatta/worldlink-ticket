@@ -54,7 +54,7 @@ def test():
         if averageDownload < downloadTheshold:
                 print("Trying to Report Ticket")
                 worldlink = WorldLink(username, password)
-                worldlink.reportTicket(message.format(download=averageDownload, upload=averageUpload))
+                worldlink.reportTicket(message.format(download=round(averageDownload, 3), upload=round(averageUpload, 3)))
         else:
                 print("Awesome!! Internet Speed is fine!! No need to report ticket!!")
 
