@@ -1,7 +1,7 @@
 # WorldLink Auto Ticket Reporter
 
 ## Overview
-This program conducts speedtest with 3 different speedtest.net servers and creates a ticket with WorldLink Communications if the internet speed is below the specified threshold.
+This program conducts speedtest with provided speedtest.net servers and creates a ticket with WorldLink Communications if the internet speed is below the specified threshold.
 
 ## Requirements
 The program uses python 3.
@@ -37,9 +37,9 @@ git clone https://github.com/nikhil-pandey/worldlink-ticket
 ```
 
 ## Usage
-1. Change the variables `username`, `password`, `logData`, `logFile`, `downloadThreshold`, `message` according to your needs.
+1. Change the variables `username`, `password`, `logData`, `logFile`, `downloadThreshold`, `message`, `servers` according to your needs.
 2. Use `{download}` and `{upload}` in `message` to replace with actual speed.
-3. (Optional) Change the server ids on `Line 51` with any from [Speedtest.net Servers](http://www.speedtest.net/speedtest-servers-static.php)
+3. Optionally change the `servers` to the server ids from [Speedtest.net Servers](http://www.speedtest.net/speedtest-servers-static.php). You can use as many as you want to calculate an average speed.
 4. Give proper permissions to `main.py`. `chmod +x main.py` should be enough.
 5. Set a cron job every hour(s)/day(s) according to your choice to run the program `/path/to/main.py`
 
