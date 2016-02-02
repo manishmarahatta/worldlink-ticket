@@ -31,7 +31,7 @@ def speedtest(server):
         if "Cannot" in speed:
                 data = [server, 0, 0, 0, date]
         else:
-                fSpeed= re.search('(?:Ping: )([0-9.]+)(?: ms)(?:\n)(?:Download: )([0-9.]+)(?: Mbits\/s)(?:\n)(?:Upload: )([0-9.]+)(?: Mbits\/s)', speed)
+                fSpeed= re.search('(?:Ping: )([0-9.]+)(?: ms)(?:\n)(?:Download: )([0-9.]+)(?: Mbits?\/s)(?:\n)(?:Upload: )([0-9.]+)(?: Mbits?\/s)', speed)
                 data = [ server, float(fSpeed.group(1)), float(fSpeed.group(2)), float(fSpeed.group(3)), date]
         if logData:
                 save(data)
