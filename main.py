@@ -48,8 +48,7 @@ def average(speed1, speed2, speed3):
 
 def test():
         # Run the speedtest on 3 different servers and calculate the average speed
-        # averageDownload, averageUpload = average(speedtest(4098), speedtest(4153), speedtest(6405))
-        averageDownload, averageUpload = [ 10, 12 ]
+        averageDownload, averageUpload = average(speedtest(4098), speedtest(4153), speedtest(6405))
         print("Average Download Speed:" + str(averageDownload))
         print("Average Upload Speed:" + str(averageUpload))
         if averageDownload < downloadTheshold:
