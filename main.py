@@ -2,6 +2,10 @@
 import os, sys, csv, datetime, re
 from WorldLink import WorldLink
 
+# Speedtest-cli path
+# run "whereis speedtest-cli" to find out
+speedtestCli="/usr/local/bin/speedtest-cli"
+
 # Worldlink's Username
 username="yourUsernameHere"
 # Worldlink's Password
@@ -24,7 +28,7 @@ message = "I am subscribed to 25Mbps plan but my current internet speed is {down
 
 def speedtest(server):
         print('Running test at Server#' + str(server))
-        speed = os.popen("speedtest-cli --simple --server " + str(server)).read()
+        speed = os.popen(speedtestCli + " --simple --server " + str(server)).read()
         if speed == "":
                 print("Seems like you havent installed speedtest-cli")
                 print("To install it, run the command: sudo apt-get install speedtest-cli")
